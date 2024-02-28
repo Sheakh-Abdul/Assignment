@@ -1,0 +1,167 @@
+1. What is wrong with the following piece of code?
+
+int i = 10;
+
+while (i < 5) {
+
+i++;
+
+System.out.println(i);
+
+}
+
+
+Sol :- In this code, compile successfully and no error return but
+		there is no output on screen because veriable i initialize 
+		with 10 whereas while loop condition (i less than 5) which is false for i.
+		so there will be no output. 
+		we can do, initialze i with 0. so output will be
+
+		2
+		3
+		4
+==============================================================================================================
+
+
+3. How many exclamation marks will the following loop print?
+
+for (int i=0; i<10;i++) {
+
+System.out.print('!');
+
+}
+
+Sol :- In this code, exclamation (!) will print 10 time in a single line.
+		loop starts i=0 and go/run upto i=9.
+
+===============================================================================================================
+
+
+5. Assume getnumber(); returns a number entered by a user. What does the following piece of code do?
+{
+	int i = getnumber();
+
+	while (i < 10) {
+
+		i++;
+
+		int j = getnumber();
+
+		if (j==0) break;
+
+		else if (j==1) continue;
+
+		System.out.println(i);}
+
+	System.out.println("finished");
+}
+
+Sol :- Assume getnumber() return n.
+		if n<0 (n= -3) then output will be
+
+			-2
+			-1
+			0
+			1
+			upto 10
+			finished
+
+
+		if n=0 then output will be
+
+			finished (there is j's condition inside the while loop. so loop will break)
+
+		if n=1 then output will be
+
+			2
+			3
+			4
+			upto 10
+			finished
+
+		if 1< n >10 then output will be
+
+			n+1
+			n+2
+			upto 10
+			finished
+
+		Other value of n will be the same output
+
+			finished
+
+============================================================================================================
+
+
+7. Assume getnumber(); returns a number entered by a user. What does the following piece of code do?
+
+	do { 
+		int i = getnumber();
+		System.out.println(i);
+	} while(i!=0);
+
+Sol :- Assume getnumber() return anyvalue.
+
+		This code gives error because i initialize in only do block
+		and conditon check after the do block.
+
+
+=================================================================================================================
+
+9. What does the following program print?
+
+// This is the Hello Mumbai program in Java class HelloMumbai {
+
+public static void main (String args[]) {
+
+String name = "Mumbai";
+
+/* Now let's say hello */
+
+System.out.println("Hello+name");
+}
+
+
+Sol :- In this code, output will be
+		
+		Hello+name
+
+		why not HelloMumbai because in " " we will get the exact same as we write.
+		in "Hello+name", name treat as String not a veriable.
+
+==================================================================================================================
+
+10. What is wrong with the following piece of code?
+
+	if (i = 10){
+		System.out.println("Success");
+	}
+
+Sol :- In this code, we try to assign 10 value to i but if accept / aspect conditional statement which
+		gives the boolean output.
+
+=================================================================================================================
+
+12. What does the following piece of code do:
+
+	if ((i < 10) || (i == 15)){
+
+		i++;
+
+		System.out.println(i);
+	}
+
+Sol :- In this code, if i is less than 10 or equal to 15 then loop will run and give the output.
+		for example :- if i =4 then output will be
+
+		 5
+		 6
+		 7
+		 upto 10 
+
+		 else if i=15 loop will run one time and give the output
+
+		 16
+
+=================================================================================================================
+
