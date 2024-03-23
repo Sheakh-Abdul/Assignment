@@ -1,0 +1,359 @@
+                                               PG-DAC CDAC MUMBAI
+                                         	 Assignment no-7
+                                          Programming Questions on Array
+
+1. Write a program to print elements of Array ? 
+======================================================================================================================================================
+Answer
+=========
+class Main {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+}
+
+===================================================================================================================================================
+
+2) Write a Java program to check the equality of two arrays?
+======================================================================================================================================================
+Answer
+=========
+public class ArrayEqualityChecker {
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4, 5};
+        int[] array2 = {1, 2, 3, 4, 5};
+        
+        if (array1.length != array2.length) {
+            System.out.println("The arrays are not equal.");
+        } else {
+            boolean areEqual = true;
+            for (int i = 0; i < array1.length; i++) {
+                if (array1[i] != array2[i]) {
+                    areEqual = false;
+                    break;
+                }
+            }
+            if (areEqual) {
+                System.out.println("The arrays are equal.");
+            } else {
+                System.out.println("The arrays are not equal.");
+            }
+        }
+    }
+}
+======================================================================================================================================================
+
+3) Write a Java program to find all pairs of elements in an integer array whose sum is equal to a given number?
+======================================================================================================================================================
+Answer
+=========
+import java.util.*;
+
+public class Arry {
+    
+    public static void findPairs(int[] arr, int targetSum) {
+        if (arr == null || arr.length < 2) {
+            System.out.println("Input array is invalid.");
+            return;
+        }
+        
+        System.out.println("Pairs with sum " + targetSum + " are:");
+        
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == targetSum) {
+                    System.out.println(arr[i] + ", " + arr[j]);
+                }
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[20];
+        System.out.print("Enter length of Array = ");
+        int index = sc.nextInt();
+        System.out.println("Enter Elements = ");
+        for(int i=0 ; i< index; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.print("Enter Your Target Sum = ");
+        int targetSum = sc.nextInt();
+        
+        findPairs(arr, targetSum);
+    }
+}
+
+
+
+======================================================================================================================================================
+
+4)  Write a program to reverse an Array in java . 
+======================================================================================================================================================
+Answer
+=========
+public class ArrayReversal {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int[] reversedArray = revArr(array);
+
+        System.out.println("Original Array:");
+        printArray(array);
+
+        System.out.println("Reversed Array:");
+        printArray(reversedArray);
+    }
+
+    public static int[] revArr(int[] array) {
+        int[] revArr = new int[array.length];
+        int j = 0;
+        for (int i = array.length - 1; i >= 0; i--) {
+            revArr[j] = array[i];
+            j++;
+        }
+        return revArr;
+    }
+
+    public static void printArray(int[] array) {
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+======================================================================================================================================================
+
+5) Find out smallest and largest number in a given Array? 
+======================================================================================================================================================
+Answer
+=========
+public class ArrayMinMax {
+    public static void findMinMax(int[] array) {
+        if (array == null || array.length == 0) {
+            System.out.println("Array is empty");
+            return;
+        }
+
+        int min = array[0];
+        int max = array[0];
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+
+        System.out.println("Smallest Number: " + min);
+        System.out.println("Largest Number: " + max);
+    }
+
+    public static void main(String[] args) {
+        int[] array = {4, 2, 7, 1, 5, 9, 3};
+        findMinMax(array);
+    }
+}
+
+
+======================================================================================================================================================
+
+6) Print the third-largest number in an array without sorting it 
+Input: [ 24,54,31,16,82,45,67]
+Output: 54 (82 and 67 are the largest and second-largest)
+======================================================================================================================================================
+Answer
+=========
+public class ThirdLargestNumber {
+    public static void main(String[] args) {
+        int[] array = {24, 54, 31, 16, 82, 45, 67};
+        findThirdLargestNumber(array);
+    }
+
+    public static void findThirdLargestNumber(int[] array) {
+    
+
+        int firstLargest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        int thirdLargest = Integer.MIN_VALUE;
+
+        for (int num : array) {
+            if (num > firstLargest) {
+                thirdLargest = secondLargest;
+                secondLargest = firstLargest;
+                firstLargest = num;
+            } else if (num > secondLargest && num != firstLargest) {
+                thirdLargest = secondLargest;
+                secondLargest = num;
+            } else if (num > thirdLargest && num != secondLargest && num != firstLargest) {
+                thirdLargest = num;
+            }
+        }
+
+        System.out.println("Third largest number: " + thirdLargest);
+    }
+}
+
+======================================================================================================================================================
+
+
+7)Write a program to merge two arrays of integers by reading one number at a time from each array until  one of the array is exhausted, and then concatenating the remaining numbers.
+ Input: [23,60,94,3,102] and [42,16,74]
+ Output: [23,42,60,16,94,74,3,102]
+======================================================================================================================================================
+Answer
+=========
+package com.exmple;
+
+public class Program {
+
+	public static void main(String[] args) {
+		int ar1[]= {2,5,8,6};
+		int ar2[]= {3,7,1};
+		int mrg[]= new int [ar1.length + ar2.length];
+		//int min = 0;
+		int max = 0;
+		
+		for (int i=0; i < ar1.length ; i++) {
+			
+			mrg[i]= ar1[i];
+		}
+		int j=0;
+		for (int i=ar1.length; i < mrg.length ; i++) {
+					
+					mrg[i]= ar2[j];
+					j++;
+				}
+		for(int i : mrg) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		int n = mrg.length;
+        int temp = 0;
+        
+        for (int i = 0; i < n; i++) {
+            for ( j = 1; j < (n - i); j++) {
+                if (mrg[j - 1] > mrg[j]) {
+                    temp = mrg[j - 1];
+                    mrg[j - 1] = mrg[j];
+                    mrg[j] = temp;
+                }
+            }
+        }
+		for(int i : mrg) {
+			System.out.print(i+" ");
+		}
+
+	}
+
+}
+
+
+======================================================================================================================================================
+ 8).Write a program which takes an array of integers and prints the running average of 3 consecutive integers. 
+In case the array has fewer than 3 integers, there should be no output.
+ Input: [5,14,35,89,140]
+Output: [18, 46, 88] 
+(Explanation: 18=(5+14+35/3, 46=(14+35+89)/3, ...)
+======================================================================================================================================================
+Answer
+=========
+public class RunAvg{
+    public static void main(String[] args) {
+        int[] inputArray = {5, 14, 35, 89, 140};
+        calcRunAvg(inputArray);
+    }
+
+    public static void calcRunAvg(int[] array) {
+        if (array.length < 3) {
+            return;
+        }
+
+        for (int i = 0; i <= array.length - 3; i++) {
+            int sum = array[i] + array[i + 1] + array[i + 2];
+            int average = sum / 3;
+            System.out.println(average);
+        }
+    }
+}
+
+
+======================================================================================================================================================
+
+9) Write a program which generates the series 1,4,27,16,125,36
+======================================================================================================================================================
+Answer
+=========
+public class SeriesGenerator {
+    public static void main(String[] args) {
+        int[] series = generateSeries(6);
+        for (int num : series) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static int[] generateSeries(int n) {
+        int[] series = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                series[i] = (int) Math.pow(i + 1, 3);
+            } else {
+                series[i] = (i + 1) * (i + 1);
+            }
+        }
+        return series;
+    }
+}
+
+======================================================================================================================================================
+
+10) Given an array of integers, print whether the numbers are in ascending order or in descending order or in random order without sorting
+ Input: [5,14,35,90,139] Output: Ascending 
+ Input: [88,67,35,14,-12] Output: Descending
+Input: [65,14,129,34,7] Output: Random 
+
+======================================================================================================================================================
+Answer
+=========
+public class OrderChecker {
+    public static void main(String[] args) {
+        int[] arr1 = {5, 14, 35, 90, 139};
+        int[] arr2 = {88, 67, 35, 14, -12};
+        int[] arr3 = {65, 14, 129, 34, 7};
+
+        checkOrder(arr1);
+        checkOrder(arr2);
+        checkOrder(arr3);
+    }
+
+    public static void checkOrder(int[] arr) {
+        boolean ascending = true;
+        boolean descending = true;
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                ascending = false;
+            } else if (arr[i] < arr[i + 1]) {
+                descending = false;
+            }
+        }
+
+        if (ascending) {
+            System.out.println("Ascending");
+        } else if (descending) {
+            System.out.println("Descending");
+        } else {
+            System.out.println("Random");
+        }
+    }
+}
+
+
+======================================================================================================================================================
